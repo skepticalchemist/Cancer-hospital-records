@@ -49,17 +49,3 @@ Team members:
 ```python
 python format_conversion.py --input "dbf file name" --output  "csv file name"
 ```
-
-
-
-
-
-
-
-Libraries used in this project:
-* `numpy`
-* `pandas`
-* `matplotlib`
-* `missingno`
-* `simpledbf`
-* `datetime`
