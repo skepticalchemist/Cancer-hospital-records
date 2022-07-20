@@ -1,0 +1,9 @@
+ipython
+jupyterlab
+matplotlib
+missingno
+numpy
+pandas
+pytables
+simpledbf
+sqlalchemy
