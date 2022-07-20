@@ -181,3 +181,61 @@ def medical_speciality():
     legend_text = str3
 
     return legend_text
+
+
+def count_entries_outracla(bottom, top, df, column='outracla'):
+    if bottom != 1 and top != 1:
+        total_count = (
+            df[column]
+            .value_counts(normalize=False)[((df[column]
+                                             .value_counts(normalize=False) >= bottom) & (df[column]
+                                                                                          .value_counts(
+                normalize=False) <= top))]
+        ).shape[0]
+    else:
+        total_count = (
+            df[column]
+            .value_counts(normalize=False)[(df[column]
+                                            .value_counts(normalize=False) == 1)]
+        ).shape[0]
+
+    return total_count
+
+
+def separate_recnenhum(target_column, label_column, df):
+    """
+    target column: topogrup or topo
+    label column: recnenhum
+    """
+    # create two series containing cancer types with(0)/without(1) recurrence
+    recid_0 = df[target_column][df[label_column] == 0].value_counts()[
+        df[target_column][df[label_column] == 0].value_counts() > 0]
+    recid_1 = df[target_column][df[label_column] == 1].value_counts()[
+        df[target_column][df[label_column] == 1].value_counts() > 0]
+
+    # convert series to dataframes
+    df1 = recid_1.to_frame().reset_index()
+    df0 = recid_0.to_frame().reset_index()
+
+    # merge dataframes
+    df01 = pd.merge(df1, df0, on='index')
+
+    if target_column == 'topogrup':
+        df01 = df01.rename(columns={'index': 'topogrup', 'topogrup_x': 'rec1_counts', 'topogrup_y': 'rec0_counts'})
+
+    if target_column == 'topo':
+        df01 = df01.rename(columns={'index': 'topo', 'topo_x': 'rec1_counts', 'topo_y': 'rec0_counts'})
+
+    return df01, target_column
+
+
+def ratio_recnenhum(df):
+    # calculate recurrence percentages
+    df['rec_sum'] = df['rec1_counts'] + df['rec0_counts']
+    df['rec0_ratio'] = (df['rec0_counts'] / df['rec_sum']) * 100
+    df['rec1_ratio'] = (df['rec1_counts'] / df['rec_sum']) * 100
+    # round the percentage
+    ratio = df.round(1)
+
+    return ratio
+
