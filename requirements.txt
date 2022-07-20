@@ -4,6 +4,6 @@ matplotlib
 missingno
 numpy
 pandas
-pytables
+tables
 simpledbf
 sqlalchemy
