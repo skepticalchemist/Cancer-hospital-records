@@ -43,7 +43,7 @@ The `/src` directory contains some **python code**:
 
 1. Create a virtual environment of your choice
 2. Clone this github repository
-3.  
+3. Install project depencies:
 ```python 
 pip install -r requeriments.txt
 ```
