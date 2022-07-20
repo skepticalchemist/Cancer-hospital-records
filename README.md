@@ -51,7 +51,7 @@ pip install -r requeriments.txt
 5. Download the dataset from the [FOSP website](http://www.fosp.saude.sp.gov.br/fosp/diretoria-adjunta-de-informacao-e-epidemiologia/rhc-registro-hospitalar-de-cancer/banco-de-dados-do-rhc/) and store it in the `/data`
 6. Convert the dataset from _.dbf_ (original format) to _.csv_ format
    - The python code and dataset are located in the subfolders /usr and /data, respectively.
-   - To convert the file just run the following command on a terminal paying attention to the respective paths:
+   - To convert the file just run the following command on a terminal paying attention to the respective file paths:
 ```python
 python format_conversion.py --input "dbf file name" --output  "csv file name"
 ```
