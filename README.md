@@ -41,6 +41,20 @@ The `/src` directory contains some **python code**:
 
 # How to use it
 
+This repository uses Pipenv to manage the virtual environment and dependencies. Pipenv is a tool that simplifies the creation and management of virtual environments and dependency tracking for Python projects. Below is a step-by-step guide to set up and use the virtual environment for this repository.
+1. Install pipenv:
+```python
+pip install pipenv
+```
+2. Once Pipenv is installed, navigate to the root directory of this repository (where the Pipfile is located) and run the following command to install all the dependencies listed in the Pipfile:
+```python
+pipenv install
+```
+This command will:
+* Create a virtual environment for the project.
+* Install all required dependencies into the virtual environment.
+
+
 1. Create a virtual environment of your choice
 2. Clone this github repository
 3. Install project depencies:
@@ -48,7 +62,7 @@ The `/src` directory contains some **python code**:
 pip install -r requeriments.txt
 ```
 4. Inside the repository, create a new directory called `data`
-5. Download the dataset from the [FOSP website](http://www.fosp.saude.sp.gov.br/fosp/diretoria-adjunta-de-informacao-e-epidemiologia/rhc-registro-hospitalar-de-cancer/banco-de-dados-do-rhc/) and store it in the `/data`
+5. Download the dataset from the [FOSP website](http://www.fosp.saude.sp.gov.br/fosp/diretoria-adjunta-de-informacao-e-epidemiologia/rhc-registro-hospitalar-de-cancer/banco-de-dados-do-rhc/) and store it in the `/data`. You'll have to register to
 6. Convert the dataset from _.dbf_ (original format) to _.csv_ format
    - The python code and dataset are located in the subfolders /usr and /data, respectively.
    - To convert the file just run the following command on a terminal paying attention to the respective file paths:
