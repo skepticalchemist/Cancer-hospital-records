@@ -1,15 +1,10 @@
-.idea
-.ipynb_checkpoints
-/data
-/docs
-/notebooks/.ipynb_checkpoints
-/notebooks/2_Converting_dataset_format.ipynb
-/notebooks/3_EDA-old.ipynb
-/notebooks/plotly.ipynb
-/notebooks/SP_Hospital_Registry_Cancer_Database.ipynb
-/notebooks/test.ipynb
-/notebooks/Untitled.ipynb
-/notebooks/*.jpg
-/notebooks/*.csv
-src/__pycache__
-src/argparse
+# Ignore everything
+*
+
+# Except the following file
+Pipfile
+README.md
+! /notebook/1_Glossary.ipynb
+! /notebook/2_EDA.ipynb 
+! /srv/format_conversion.py
+! /src/utility.py

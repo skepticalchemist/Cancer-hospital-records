@@ -202,6 +202,34 @@ def count_entries_outracla(bottom, top, df, column='outracla'):
     return total_count
 
 
+# def separate_recnenhum(target_column, label_column, df):
+#    """
+#    target column: topogrup or topo
+#    label column: recnenhum
+#    """
+#    # create two series containing cancer types with(0)/without(1) recurrence
+#    recid_0 = df[target_column][df[label_column] == 0].value_counts()[
+#        df[target_column][df[label_column] == 0].value_counts() > 0]
+#    recid_1 = df[target_column][df[label_column] == 1].value_counts()[
+#        df[target_column][df[label_column] == 1].value_counts() > 0]
+#
+#    # convert series to dataframes
+#    df1 = recid_1.to_frame().reset_index()
+#    df0 = recid_0.to_frame().reset_index()
+#
+#    # merge dataframes
+#    # df01 = pd.merge(df1, df0, on='index')
+#    df01 = df1.merge(df0, how='left', left_on='index', right_on='index')
+#    df01.fillna(0, inplace=True)
+#
+#    if target_column == 'topogrup':
+#        df01 = df01.rename(columns={'index': 'topogrup', 'topogrup_x': 'rec1_counts', 'topogrup_y': 'rec0_counts'})
+#
+#    if target_column == 'topo':
+#        df01 = df01.rename(columns={'index': 'topo', 'topo_x': 'rec1_counts', 'topo_y': 'rec0_counts'})
+#
+#    return df01, target_column
+
 def separate_recnenhum(target_column, label_column, df):
     """
     target column: topogrup or topo
@@ -216,18 +244,16 @@ def separate_recnenhum(target_column, label_column, df):
     # convert series to dataframes
     df1 = recid_1.to_frame().reset_index()
     df0 = recid_0.to_frame().reset_index()
-
+    
     # merge dataframes
-    df01 = pd.merge(df1, df0, on='index')
+    # df01 = df1.merge(df0, how='left', left_on='index', right_on='index')
+    df01 = df1.merge(df0, how='left', left_on=target_column, right_on=target_column)
 
-    if target_column == 'topogrup':
-        df01 = df01.rename(columns={'index': 'topogrup', 'topogrup_x': 'rec1_counts', 'topogrup_y': 'rec0_counts'})
-
-    if target_column == 'topo':
-        df01 = df01.rename(columns={'index': 'topo', 'topo_x': 'rec1_counts', 'topo_y': 'rec0_counts'})
-
+    df01.fillna(0, inplace=True)
+    df01.rename(columns={'index': target_column, 'topo_x': 'rec1_counts', 'topo_y': 'rec0_counts'}, inplace=True)
+    df01.rename(columns={'count_x': 'rec1_counts', 'count_y': 'rec0_counts'}, inplace=True)
+        
     return df01, target_column
-
 
 def ratio_recnenhum(df):
     # calculate recurrence percentages

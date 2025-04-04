@@ -1,9 +1,0 @@
-ipython
-jupyterlab
-matplotlib
-missingno
-numpy
-pandas
-tables
-simpledbf
-sqlalchemy
