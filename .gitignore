@@ -3,6 +3,7 @@
 
 # Except the following file
 ! Pipfile
+! Pipfile.lock
 ! README.md
 ! /notebook/1_Glossary.ipynb
 ! /notebook/2_EDA.ipynb 
