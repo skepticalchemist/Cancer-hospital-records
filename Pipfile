@@ -1,0 +1,25 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+pandas = "*"
+numpy = "*"
+matplotlib = "*"
+missingno = "*"
+wordcloud = "*"
+dbf2csv = "*"
+scikit-learn = "*"
+xgboost = "*"
+imblearn = "*"
+jupyterlab = "*"
+ipykernel = "*"
+simpledbf = "*"
+sqlalchemy = "*"
+tables = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.13"
