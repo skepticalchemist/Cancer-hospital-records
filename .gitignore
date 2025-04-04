@@ -2,8 +2,8 @@
 *
 
 # Except the following file
-Pipfile
-README.md
+! Pipfile
+! README.md
 ! /notebook/1_Glossary.ipynb
 ! /notebook/2_EDA.ipynb 
 ! /srv/format_conversion.py
