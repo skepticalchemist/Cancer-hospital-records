@@ -53,9 +53,7 @@ pipenv install
 This command will:
 * Create a virtual environment for the project.
 * Install all required dependencies into the virtual environment.
-```python 
-pip install -r requeriments.txt
-```
+
 4. Inside the repository, create a new directory called `data`
 5. Download the dataset from the [FOSP website](http://www.fosp.saude.sp.gov.br/fosp/diretoria-adjunta-de-informacao-e-epidemiologia/rhc-registro-hospitalar-de-cancer/banco-de-dados-do-rhc/) and store it in the `/data`. You'll have to register to access the data.
 6. Convert the dataset from _.dbf_ (original format) to _.csv_ format

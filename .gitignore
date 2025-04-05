@@ -2,7 +2,6 @@
 *
 
 # Except the following file
-!.gitignore
 !Pipfile
 !Pipfile.lock
 !README.md
